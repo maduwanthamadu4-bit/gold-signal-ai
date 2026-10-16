@@ -123,4 +123,41 @@ def analyze_market(symbol: str = "GC=F", interval: str = "15m", balance: float =
             }
         }
     except Exception as e:
-        return {"error": str(e)}
+        return {"error": str(e)} 
+        <!-- Run Analysis Button එක -->
+<button onclick="runAnalysis()">Run Analysis</button>
+
+
+<!-- 💥 මෙන්න මෙතැනට (Button එකට පහළින්) අර Code එක Paste කරන්න 💥 -->
+<div style="background: #1e222d; padding: 15px; border-radius: 10px; margin-top: 15px; color: white;">
+  <h4 style="color: #f0b90b; margin-bottom: 10px;">🛡️ Risk & Lot Size Calculator</h4>
+  
+  <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+    <div style="flex: 1;">
+      <label style="font-size: 12px;">Account Balance ($):</label>
+      <input type="number" id="balance" value="1000" style="width: 100%; padding: 8px; background: #2a2e39; color: white; border: 1px solid #444; border-radius: 5px;">
+    </div>
+    <div style="flex: 1;">
+      <label style="font-size: 12px;">Risk (%):</label>
+      <select id="risk_pct" style="width: 100%; padding: 8px; background: #2a2e39; color: white; border: 1px solid #444; border-radius: 5px;">
+        <option value="1">1% (Safe)</option>
+        <option value="2" selected>2% (Moderate)</option>
+        <option value="5">5% (High)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Output Display -->
+  <div style="background: #131722; padding: 10px; border-radius: 5px; font-size: 14px; line-height: 1.6;">
+    📊 Recommended Lot Size: <b id="lot_disp" style="color: #00f2fe;">0.01 Lot</b><br>
+    💵 Max Risk Amount: <b id="risk_usd_disp" style="color: #ff4a4a;">$20.00</b><br>
+    🔒 Required Margin: <b id="margin_disp" style="color: #f0b90b;">$41.50</b>
+  </div>
+</div>
+
+
+<!-- Signal Display වෙන කොටස (Symbol, Price, Entry, SL, TP) -->
+<div id="signal-results">
+   ...
+</div>
+
